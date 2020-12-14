@@ -2,10 +2,15 @@ import React from "react";
 import CharacterItem from "./CharacterItem";
 
 const List = ({ listItems, onCharacterSelect }) => {
-  console.log(listItems);
-
-  const renderedList = listItems.map((item) => {
-    return <div>{item.name}</div>;
+  if (!listItems) {
+    return <div>Waiting for characters</div>;
+  }
+  const renderedList = listItems.map((item, i) => {
+    return (
+      <div key={i}>
+        <CharacterItem {...item} />
+      </div>
+    );
   });
 
   return (
