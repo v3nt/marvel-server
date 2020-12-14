@@ -9,6 +9,7 @@ import Footer from "./Footer";
 
 import Landing from "./Landing";
 import List from "./List";
+import CharacterDetail from "./CharacterDetail";
 
 import useCharacters from "../hooks/useCharacters";
 
@@ -27,13 +28,16 @@ const App = () => {
         <Switch>
           <div>
             <Header />
-            <Route path="/">
+            <Route path="/Characters">
               <List
                 listItems={characters}
                 onVideoSelect={setSelectedCharacter}
               />
             </Route>
             <Route exact path="/" component={Landing} />
+            <Route exact path="/character/detail/:id">
+              <CharacterDetail />
+            </Route>
           </div>
         </Switch>
       </BrowserRouter>
