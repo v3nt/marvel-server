@@ -14,6 +14,17 @@ const useCharacters = () => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
+    // const fetchData = async () => {
+    //   const response = await fetch(
+    //     `http://gateway.marvel.com/v1/public/characters?ts=${process.env.REACT_APP_MARVEL_TS}&apikey=${process.env.REACT_APP_MARVEL_API_KEY}&hash=${myApiURLM5}`
+    //   );
+    //   const data = await response.json();
+
+    //   console.log("data");
+    //   console.log(data.data.results);
+    //   setCharacters(data.data.results);
+    // };
+    // fetchData();
     items();
   }, []);
 
@@ -23,13 +34,12 @@ const useCharacters = () => {
         ts: 1,
         apikey: process.env.REACT_APP_MARVEL_API_KEY,
         hash: myApiURLM5,
-        limit: 100,
+        limit: 20,
       },
     });
-    setCharacters(response.data.results);
+    setCharacters(response.data.data.results);
     console.log("response");
-    console.log(response);
-    console.log(response.data.data.results);
+    console.log(response.data.data);
   };
 
   return [characters];

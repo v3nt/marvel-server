@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 // import { connect } from "react-redux";
 // import * as actions from "../actions";
@@ -13,6 +13,7 @@ import List from "./List";
 import useCharacters from "../hooks/useCharacters";
 
 const App = () => {
+  // const [characters, setCharacters] = useState([]);
   const [characters] = useCharacters();
 
   return (
@@ -20,13 +21,19 @@ const App = () => {
       <BrowserRouter>
         <div>
           <Header />
-          <Route
+          {/* <Route
             path="/"
             exact
             component={List}
             characters={characters}
             onCharacterSelect={() => console.log("selected")}
-          />
+          /> */}
+          <List listItems={characters} />
+          {/* <>
+            {characters.map((d) => (
+              <div>{d.name}</div>
+            ))}
+          </> */}
           {/* 
           <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/surveys" component={SurveyList} />
@@ -38,5 +45,4 @@ const App = () => {
   );
 };
 
-// export default connect(null, actions)(App);
 export default App;
