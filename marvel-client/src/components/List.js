@@ -1,10 +1,18 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
-import marvel from "../apis/marvel.js";
+const List = ({ characters, onCharacterSelect }) => {
+  //   console.log(characters);
 
-console.log(marvel);
+  //   const renderedList = characters.map((Character) => {
+  //     return (
+  //       <CharacterItem
+  //         key={Character.id.CharacterId}
+  //         onCharacterSelect={onCharacterSelect}
+  //         character={character}
+  //       />
+  //     );
+  //   });
 
-const List = () => {
   return (
     <div>
       <h3>List</h3>

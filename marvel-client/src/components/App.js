@@ -7,7 +7,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
-import Landing from "./Landing";
+// import Landing from "./Landing";
 import List from "./List";
 
 import useCharacters from "../hooks/useCharacters";
@@ -20,7 +20,13 @@ const App = () => {
       <BrowserRouter>
         <div>
           <Header />
-          <Route path="/" exact component={List} characters={characters} />
+          <Route
+            path="/"
+            exact
+            component={List}
+            characters={characters}
+            onCharacterSelect={() => console.log("selected")}
+          />
           {/* 
           <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/surveys" component={SurveyList} />

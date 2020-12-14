@@ -8,11 +8,7 @@ const myApiURL =
   process.env.REACT_APP_MARVEL_API_SECRET +
   process.env.REACT_APP_MARVEL_API_KEY;
 
-console.log(myApiURL);
-
 const myApiURLM5 = md5(myApiURL);
-
-console.log("myApiURLM5", myApiURLM5);
 
 const useCharacters = () => {
   const [characters, setCharacters] = useState([]);
@@ -27,12 +23,16 @@ const useCharacters = () => {
         ts: 1,
         apikey: process.env.REACT_APP_MARVEL_API_KEY,
         hash: myApiURLM5,
+        limit: 100,
       },
     });
-    setCharacters(response);
+    setCharacters(response.data.results);
+    console.log("response");
+    console.log(response);
+    console.log(response.data.data.results);
   };
 
-  return characters;
+  return [characters];
 };
 
 export default useCharacters;
