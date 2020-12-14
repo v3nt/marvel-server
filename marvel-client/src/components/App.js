@@ -1,5 +1,3 @@
-//es2015 modules. import and export.
-
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 // import { connect } from "react-redux";
@@ -10,14 +8,19 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 import Landing from "./Landing";
+import List from "./List";
+
+import useCharacters from "../hooks/useCharacters";
 
 const App = () => {
+  const [characters] = useCharacters();
+
   return (
     <div className="container">
       <BrowserRouter>
         <div>
           <Header />
-          <Route path="/" exact component={Landing} />
+          <Route path="/" exact component={List} characters={characters} />
           {/* 
           <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/surveys" component={SurveyList} />
