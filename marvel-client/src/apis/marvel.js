@@ -1,4 +1,5 @@
 import axios from "axios";
+import md5 from "md5";
 //http://gateway.marvel.com/v1/public/characters?ts={{ts}}&apikey={{apikey}}&hash={{hash}}
 
 const myApiURL =
@@ -8,10 +9,10 @@ const myApiURL =
 
 console.log(myApiURL);
 
-const myApiURLM5 = myApiURLM5(myApiURL);
+const myApiURLM5 = md5(myApiURL);
 
-console.log(myApiURLM5);
+console.log("myApiURLM5", myApiURLM5);
 
 export default axios.create({
-  baseURL: myApiURL,
+  baseURL: "http://gateway.marvel.com/v1/public/" + myApiURL,
 });

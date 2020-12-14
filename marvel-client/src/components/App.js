@@ -5,8 +5,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 // import { connect } from "react-redux";
 // import * as actions from "../actions";
 
-import 
-
 /// Comps
 import Header from "./Header";
 import Footer from "./Footer";
