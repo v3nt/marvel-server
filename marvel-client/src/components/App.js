@@ -22,20 +22,15 @@ const App = () => {
   return (
     <div className="container">
       <BrowserRouter>
+        <Header />
         <Switch>
-          <div>
-            <Header />
-            <Route path="/characters">
-              <List
-                listItems={characters}
-                onVideoSelect={setSelectedCharacter}
-              />
-            </Route>
-            <Route exact path="/" component={Landing} />
-            <Route path="/character/:id">
-              <CharacterDetail />
-            </Route>
-          </div>
+          <Route path="/characters">
+            <List listItems={characters} onVideoSelect={setSelectedCharacter} />
+          </Route>
+          <Route exact path="/" component={Landing} />
+          <Route path="/character/:id">
+            <CharacterDetail />
+          </Route>
         </Switch>
       </BrowserRouter>
       <Footer />
