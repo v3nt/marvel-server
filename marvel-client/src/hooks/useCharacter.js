@@ -1,21 +1,31 @@
 import { useState, useEffect } from "react";
 import marvel from "../apis/marvel";
 
-const useCharacter = (id) => {
-  const [character, setCharacter] = useState({});
+function useCharacter(id) {
+  const [character, setCharacter] = useState([]);
+  const [isLoading, setIsLoading] = useState(null);
 
   useEffect(() => {
-    loadItem();
-    return () => {};
+    setIsLoading(true);
+    const fetchData = async () => {
+      setIsLoading(true);
+      await marvel
+        .get(`/characters/${id}`)
+        .then((response) => {
+          /* DO STUFF WHEN THE CALLS SUCCEEDS */
+          setIsLoading(false);
+          setCharacter(response.data.data.results[0]);
+        })
+        .catch((e) => {
+          /* HANDLE THE ERROR (e) */
+        });
+    };
+    fetchData();
   }, [id]);
-
-  const loadItem = async (term) => {
-    const response = await marvel.get(`/characters/${id}`);
-    console.log(response.data.data.results[0]);
-    setCharacter(response.data.data.results[0]);
+  return {
+    isLoading,
+    character,
   };
-
-  return [character];
-};
+}
 
 export default useCharacter;

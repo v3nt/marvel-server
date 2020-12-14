@@ -17,7 +17,7 @@ import useCharacter from "../hooks/useCharacter";
 const App = () => {
   // const [characters, setCharacters] = useState([]);
   const [characters] = useCharacters();
-  const [selectedCharacter, setSelectedCharacter] = useCharacter(null);
+  // const [selectedCharacter, setSelectedCharacter] = useCharacter(null);
 
   return (
     <div className="container">
@@ -25,7 +25,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route path="/characters">
-            <List listItems={characters} onVideoSelect={setSelectedCharacter} />
+            <List listItems={characters} />
           </Route>
           <Route exact path="/" component={Landing} />
           <Route path="/character/:id">
