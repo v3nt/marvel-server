@@ -12,15 +12,12 @@ import List from "./List";
 import CharacterDetail from "./CharacterDetail";
 
 import useCharacters from "../hooks/useCharacters";
+import useCharacter from "../hooks/useCharacter";
 
 const App = () => {
   // const [characters, setCharacters] = useState([]);
   const [characters] = useCharacters();
-  const [selectedCharacter, setSelectedCharacter] = useState(null);
-
-  useEffect(() => {
-    setSelectedCharacter();
-  }, [characters]);
+  const [selectedCharacter, setSelectedCharacter] = useCharacter(null);
 
   return (
     <div className="container">
@@ -28,14 +25,14 @@ const App = () => {
         <Switch>
           <div>
             <Header />
-            <Route path="/Characters">
+            <Route path="/characters">
               <List
                 listItems={characters}
                 onVideoSelect={setSelectedCharacter}
               />
             </Route>
             <Route exact path="/" component={Landing} />
-            <Route exact path="/character/detail/:id">
+            <Route path="/character/:id">
               <CharacterDetail />
             </Route>
           </div>

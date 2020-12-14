@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
 import marvel from "../apis/marvel";
 
-const useCharacter = () => {
+const useCharacter = (id) => {
   const [character, setCharacter] = useState([]);
 
   useEffect(() => {
-    items();
+    item();
   }, []);
 
-  const items = async (term) => {
-    const response = await marvel.get("/character/");
-    setCharacter(response.data.data.results);
-    console.log("response");
-    console.log(response.data.data.results);
+  const item = async (term) => {
+    const response = await marvel.get(`/characters/${id}`);
+    setCharacter(response.data.data.results[0]);
   };
 
   return [character];
