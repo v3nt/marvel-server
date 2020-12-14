@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import { connect } from "react-redux";
 // import * as actions from "../actions";
 
@@ -7,7 +7,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
-// import Landing from "./Landing";
+import Landing from "./Landing";
 import List from "./List";
 
 import useCharacters from "../hooks/useCharacters";
@@ -15,30 +15,27 @@ import useCharacters from "../hooks/useCharacters";
 const App = () => {
   // const [characters, setCharacters] = useState([]);
   const [characters] = useCharacters();
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+
+  useEffect(() => {
+    setSelectedCharacter();
+  }, [characters]);
 
   return (
     <div className="container">
       <BrowserRouter>
-        <div>
-          <Header />
-          {/* <Route
-            path="/"
-            exact
-            component={List}
-            characters={characters}
-            onCharacterSelect={() => console.log("selected")}
-          /> */}
-          <List listItems={characters} />
-          {/* <>
-            {characters.map((d) => (
-              <div>{d.name}</div>
-            ))}
-          </> */}
-          {/* 
-          <Route path="/dashboard" component={Dashboard} />
-          <Route exact path="/surveys" component={SurveyList} />
-          <Route path="/surveys/new" component={SurveyNew} /> */}
-        </div>
+        <Switch>
+          <div>
+            <Header />
+            <Route path="/">
+              <List
+                listItems={characters}
+                onVideoSelect={setSelectedCharacter}
+              />
+            </Route>
+            <Route exact path="/" component={Landing} />
+          </div>
+        </Switch>
       </BrowserRouter>
       <Footer />
     </div>

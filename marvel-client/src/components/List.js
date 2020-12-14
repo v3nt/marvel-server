@@ -8,7 +8,7 @@ const List = ({ listItems, onCharacterSelect }) => {
   const renderedList = listItems.map((item, i) => {
     return (
       <div key={i}>
-        <CharacterItem {...item} />
+        <CharacterItem {...item} onCharacterSelect={onCharacterSelect} />
       </div>
     );
   });

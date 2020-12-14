@@ -23,7 +23,7 @@ const useCharacters = () => {
         ts: 1,
         apikey: process.env.REACT_APP_MARVEL_API_KEY,
         hash: myApiURLM5,
-        limit: 20,
+        limit: 30,
       },
     });
     setCharacters(response.data.data.results);

@@ -1,7 +1,9 @@
 // import React from "react";
+import React from "react";
 
-const CharacterItem = (item) => {
-  return <div>{item.name}</div>;
+const CharacterItem = ({ name, id, onCharacterSelect }) => {
+  return <div onClick={() => console.log(id)}>{name}</div>;
+  //   return <div onClick={() => onCharacterSelect(id)}>{name}</div>;
 };
 
 export default CharacterItem;
