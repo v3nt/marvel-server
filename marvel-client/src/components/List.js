@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CharacterItem from "./CharacterItem";
 import useCharacters from "../hooks/useCharacters";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import history from "../utils/history";
 
 import Pagination from "./Pagination";
@@ -15,7 +15,7 @@ const List = ({ listTitle }) => {
 
   const { characters, totalItems, totalPages } = useCharacters({
     page: pageNumber,
-    ppp: 30,
+    ppp: 45,
   });
 
   useEffect(() => {
@@ -54,6 +54,7 @@ const List = ({ listTitle }) => {
       <Pagination
         totalItems={totalItems}
         pageNumber={pageNumber}
+        handlePageChange={handlePageChange}
         totalPages={totalPages}
         nextAction={nextPage}
         prevAction={prevPage}
