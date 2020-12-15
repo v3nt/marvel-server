@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <Container>
       <Navbar collapseOnSelect expand="md">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <MarvelLogo />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
