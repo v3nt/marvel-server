@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CharacterItem from "./CharacterItem";
 import useCharacters from "../hooks/useCharacters";
 import { useParams, Link } from "react-router-dom";
-
+import history from "../utils/history";
 const Pagination = (props) => {
   return (
     <div>
@@ -26,6 +26,11 @@ const List = () => {
     ppp: 30,
   });
 
+  useEffect(() => {
+    setPageNumber(pageNumberUrl);
+    return () => {};
+  }, [pageNumberUrl]);
+
   // console.log(characters, totalItems, totalPages);
   const renderedList = characters.map((item, i) => {
     return (
@@ -35,9 +40,9 @@ const List = () => {
     );
   });
 
-  const gotoPage = (page) => setPageNumber(page);
   const handlePageChange = (pageNumber) => {
     setPageNumber(pageNumber);
+    history.push(`/characters/page/${pageNumber}`);
   };
   return (
     <div>
@@ -50,10 +55,10 @@ const List = () => {
       <Link to={`/characters/page/20`} className="ui button primary">
         page 20
       </Link>
-      <button onClick={() => setPageNumber(1)}>Button 1</button>
-      <button onClick={() => handlePageChange(10)}>Button 10</button>
-      <button onClick={() => gotoPage(5)}>Button 5</button>
 
+      <button onClick={() => handlePageChange(1)}>Button 1</button>
+      <button onClick={() => handlePageChange(10)}>Button 10</button>
+      <button onClick={() => handlePageChange(5)}>Button 5</button>
       <ul>{renderedList}</ul>
     </div>
   );

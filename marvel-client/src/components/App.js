@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from "react";
+import { Router, Route, Switch } from "react-router-dom";
 
 /// Comps
 import Header from "./Header";
@@ -9,14 +9,16 @@ import Landing from "./Landing";
 import List from "./List";
 import CharacterDetail from "./CharacterDetail";
 
-import useCharacters from "../hooks/useCharacters";
+// import useCharacters from "../hooks/useCharacters";
+
+import history from "../utils/history";
 
 const App = () => {
   // const [characters] = useCharacters();
 
   return (
     <div className="container">
-      <BrowserRouter>
+      <Router history={history}>
         <Header />
         <Switch>
           <Route exact path="/characters">
@@ -30,7 +32,7 @@ const App = () => {
             <CharacterDetail />
           </Route>
         </Switch>
-      </BrowserRouter>
+      </Router>
       <Footer />
     </div>
   );
