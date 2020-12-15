@@ -47,7 +47,7 @@ const List = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h3>List</h3>
       <Pagination
         totalItems={totalItems}

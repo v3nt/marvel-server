@@ -17,7 +17,7 @@ const App = () => {
   // const [characters] = useCharacters();
 
   return (
-    <div className="container">
+    <div className="container-app">
       <Router history={history}>
         <Header />
         <Switch>
