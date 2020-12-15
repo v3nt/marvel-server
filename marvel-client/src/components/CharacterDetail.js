@@ -6,7 +6,7 @@ const SECTIONS = ["comics", "series", "stories"];
 
 const Description = ({ description }) => {
   return (
-    <div>
+    <div className="character-description">
       <p>{description ? description : ""}</p>
     </div>
   );

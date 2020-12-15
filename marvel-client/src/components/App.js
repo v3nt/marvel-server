@@ -6,6 +6,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 import Landing from "./Landing";
+import MyMarvel from "./MyMarvel";
 import List from "./List";
 import CharacterDetail from "./CharacterDetail";
 
@@ -28,6 +29,7 @@ const App = () => {
             <List listTitle="Marvel Characters" />
           </Route>
           <Route exact path="/" component={Landing} />
+          <Route exact path="/my-marvel" component={MyMarvel} />
           <Route path="/character/:id">
             <CharacterDetail />
           </Route>

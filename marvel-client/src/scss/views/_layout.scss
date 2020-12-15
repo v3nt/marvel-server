@@ -87,3 +87,6 @@
     @extend .d-none, .d-md-inline;
   }
 }
+.container + .container {
+  @extend .mt-4;
+}
