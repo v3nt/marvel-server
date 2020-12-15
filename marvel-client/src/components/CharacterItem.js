@@ -10,7 +10,9 @@ const CharacterItem = ({ name, id, thumbnail }) => {
       <div className="character-content">
         <div className="character-text">
           <h2 className="character-title">
-            <Link to={`/character/${id}`}>{name}</Link>
+            <Link className="character-title-link" to={`/character/${id}`}>
+              {name}
+            </Link>
           </h2>
         </div>
         <div className="character-image">
