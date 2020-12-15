@@ -5,20 +5,6 @@ import { useParams, Link } from "react-router-dom";
 import history from "../utils/history";
 
 import Pagination from "./Pagination";
-// const Pagination = (props) => {
-//   return (
-//     <div>
-//       <div>totalItems {props.totalItems}</div>
-//       <div>
-//         <div>
-//           <button onClick={props.prevAction}>Previous </button>
-//           {props.pageNumber} /{props.totalPages}
-//           <button onClick={props.nextAction}>Next</button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 
 const List = () => {
   const { pageNumberUrl } = useParams();
@@ -44,13 +30,17 @@ const List = () => {
     );
   });
   const prevPage = () => {
-    setPageNumber(40);
-    console.log("prevPage", pageNumber, totalPages);
+    var newPageNum = pageNumber > 1 ? pageNumber - 1 : pageNumber;
+    history.push(`/characters/page/${newPageNum}`);
+    setPageNumber(newPageNum);
   };
   const nextPage = () => {
-    setPageNumber(50);
-    console.log("nextPage", pageNumber, totalPages);
+    var newPageNum =
+      pageNumber == totalPages ? pageNumber : parseFloat(pageNumber) + 1;
+    history.push(`/characters/page/${newPageNum}`);
+    setPageNumber(newPageNum);
   };
+
   const handlePageChange = (pageNumber) => {
     setPageNumber(pageNumber);
     history.push(`/characters/page/${pageNumber}`);
