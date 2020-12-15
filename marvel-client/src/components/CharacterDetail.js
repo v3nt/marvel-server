@@ -5,8 +5,6 @@ import useCharacter from "../hooks/useCharacter";
 const SECTIONS = ["comics", "series", "stories"];
 
 const Description = ({ description }) => {
-  console.log(description);
-
   return (
     <div>
       <p>{description ? description : ""}</p>
