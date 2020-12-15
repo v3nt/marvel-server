@@ -10,7 +10,10 @@ const Pagination = ({
     console.log(itemNum - pageNumber);
     if (parseInt(pageNumber) === itemNum) {
       return "page-item active";
-    } else if (itemNum - pageNumber < closeness) {
+    } else if (
+      itemNum - pageNumber < closeness &&
+      itemNum - pageNumber > 0 - closeness
+    ) {
       return "page-item item-close";
     } else {
       return "page-item not-close";
@@ -51,11 +54,18 @@ const Pagination = ({
               </button>
             </li>
             <li className="page-item">
-              <button className="page-link">...</button>
+              <button className="page-link" onClick={() => handlePageChange(1)}>
+                ...
+              </button>
             </li>
             {pageIcons}
             <li className="page-item">
-              <button className="page-link">...</button>
+              <button
+                className="page-link"
+                onClick={() => handlePageChange(totalPages)}
+              >
+                ...
+              </button>
             </li>
             <li className="page-item">
               <button className="page-link" onClick={nextAction}>

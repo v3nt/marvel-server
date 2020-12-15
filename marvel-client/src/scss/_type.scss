@@ -31,3 +31,9 @@ h2,
     text-decoration: none;
   }
 }
+
+.pagination .page-link {
+  font-size: $font-size-sm;
+  @include media-breakpoint-down(md) {
+  }
+}
