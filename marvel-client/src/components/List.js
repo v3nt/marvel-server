@@ -24,9 +24,9 @@ const List = ({ listTitle }) => {
 
   const renderedList = characters.map((item, i) => {
     return (
-      <div key={i}>
+      <li key={i} className="character-item">
         <CharacterItem {...item} />
-      </div>
+      </li>
     );
   });
 
@@ -50,7 +50,7 @@ const List = ({ listTitle }) => {
 
   return (
     <div className="container">
-      <h3>{listTitle}</h3>
+      <h1>{listTitle}</h1>
       <Pagination
         totalItems={totalItems}
         pageNumber={pageNumber}
@@ -65,7 +65,7 @@ const List = ({ listTitle }) => {
       <button onClick={() => handlePageChange(1)}>Button 1</button>
       <button onClick={() => handlePageChange(10)}>Button 10</button>
       <button onClick={() => handlePageChange(5)}>Button 5</button> */}
-      <ul>{renderedList}</ul>
+      <ul className="character-list">{renderedList}</ul>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import MarvelLogo from "../assets/images/MarvelLogo";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg">
       <div className="container">
         <Link to="/" className="navbar-brand">
           <MarvelLogo />

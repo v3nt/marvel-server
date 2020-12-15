@@ -25,29 +25,31 @@ const CharacterDetail = () => {
       character.thumbnail.extension;
     console.log(character);
     return (
-      <div className="character-info">
-        <h2 className="title">{character.name}</h2>
-        <Description {...character} />
-        <img src={thumb} alt={character.name} />
-        {SECTIONS.map((sec, i) => {
-          return (
-            <div key={i} className="character-sub-section {sec}">
-              <h3 className="sub-title">
-                {sec} {character[`${sec}`].available}
-              </h3>
+      <div className="container">
+        <div className="character-info">
+          <h1 className="title">{character.name}</h1>
+          <Description {...character} />
+          <img src={thumb} alt={character.name} />
+          {SECTIONS.map((sec, i) => {
+            return (
+              <div key={i} className="character-sub-section {sec}">
+                <h3 className="sub-title">
+                  {sec} {character[`${sec}`].available}
+                </h3>
 
-              <ul className="items-list ">
-                {character[`${sec}`].items.map(({ name }, i) => {
-                  return (
-                    <li key={i} className="list-item">
-                      {name}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          );
-        })}
+                <ul className="items-list ">
+                  {character[`${sec}`].items.map(({ name }, i) => {
+                    return (
+                      <li key={i} className="list-item">
+                        {name}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
