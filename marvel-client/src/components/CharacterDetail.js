@@ -16,14 +16,11 @@ const CharacterDetail = () => {
       character.thumbnail.extension;
     return (
       <div>
-        <h2 className="ui header">Character Details</h2>
-        <p>Works every time: {character.name}</p>
-        <p></p>
+        <h2 className="ui header">{character.name}</h2>
         <img src={thumb} />
         <div className="ui segment">{character.comics.available}</div>
         <div className="ui segment">{character.series.available}</div>
         <div className="ui segment">{character.stories.available}</div>
-        <pre></pre>
       </div>
     );
   }

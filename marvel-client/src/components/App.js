@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import { connect } from "react-redux";
-// import * as actions from "../actions";
 
 /// Comps
 import Header from "./Header";
@@ -12,12 +10,9 @@ import List from "./List";
 import CharacterDetail from "./CharacterDetail";
 
 import useCharacters from "../hooks/useCharacters";
-import useCharacter from "../hooks/useCharacter";
 
 const App = () => {
-  // const [characters, setCharacters] = useState([]);
   const [characters] = useCharacters();
-  // const [selectedCharacter, setSelectedCharacter] = useCharacter(null);
 
   return (
     <div className="container">
