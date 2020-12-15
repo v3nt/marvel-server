@@ -1,37 +1,29 @@
 import { useState, useEffect } from "react";
-import md5 from "md5";
 import marvel from "../apis/marvel";
-//http://gateway.marvel.com/v1/public/characters?ts={{ts}}&apikey={{apikey}}&hash={{hash}}
 
-const myApiURL =
-  process.env.REACT_APP_MARVEL_TS +
-  process.env.REACT_APP_MARVEL_API_SECRET +
-  process.env.REACT_APP_MARVEL_API_KEY;
-
-const myApiURLM5 = md5(myApiURL);
-
-const useCharacters = () => {
+const useCharacters = (props) => {
   const [characters, setCharacters] = useState([]);
+  const [charTotal, setCharTotal] = useState(0);
 
   useEffect(() => {
     items();
-  }, []);
+  }, [props.page]);
 
-  const items = async (term) => {
+  const totalPages = Math.ceil(charTotal / props.ppp);
+
+  const items = async () => {
     const response = await marvel.get("/characters", {
       params: {
-        ts: 1,
-        apikey: process.env.REACT_APP_MARVEL_API_KEY,
-        hash: myApiURLM5,
-        limit: 30,
+        limit: props.ppp,
+        offset: (props.page - 1) * props.ppp,
       },
     });
+
+    setCharTotal(response.data.data.total);
     setCharacters(response.data.data.results);
-    console.log("response");
-    console.log(response.data.data.results);
   };
 
-  return [characters];
+  return { characters, totalItems: charTotal, totalPages };
 };
 
 export default useCharacters;

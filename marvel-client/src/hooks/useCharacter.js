@@ -3,7 +3,7 @@ import marvel from "../apis/marvel";
 
 function useCharacter(id) {
   const [character, setCharacter] = useState([]);
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);

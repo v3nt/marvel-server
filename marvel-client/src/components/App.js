@@ -12,15 +12,18 @@ import CharacterDetail from "./CharacterDetail";
 import useCharacters from "../hooks/useCharacters";
 
 const App = () => {
-  const [characters] = useCharacters();
+  // const [characters] = useCharacters();
 
   return (
     <div className="container">
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route path="/characters">
-            <List listItems={characters} />
+          <Route exact path="/characters">
+            <List />
+          </Route>
+          <Route exact path="/characters/page/:pageNumberUrl">
+            <List />
           </Route>
           <Route exact path="/" component={Landing} />
           <Route path="/character/:id">
