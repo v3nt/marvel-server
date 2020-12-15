@@ -2,6 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useCharacter from "../hooks/useCharacter";
 
+const SECTIONS = ["comics", "series", "stories"];
+
 const CharacterDetail = () => {
   const { id } = useParams();
   // custom hook. useCharacter.js
@@ -9,18 +11,33 @@ const CharacterDetail = () => {
   const isArray = character instanceof Array;
 
   if (!isLoading && isArray === false) {
-    console.log("isLoading", isArray);
+    console.log(character);
     const thumb =
       character.thumbnail.path +
       "/portrait_uncanny." +
       character.thumbnail.extension;
     return (
-      <div>
-        <h2 className="ui header">{character.name}</h2>
-        <img src={thumb} />
-        <div className="ui segment">{character.comics.available}</div>
-        <div className="ui segment">{character.series.available}</div>
-        <div className="ui segment">{character.stories.available}</div>
+      <div className="character-info">
+        <h2 className="title">{character.name}</h2>
+        <img src={thumb} alt={character.name} />
+        {SECTIONS.map((sec, i) => {
+          return (
+            <div key={i} className="character-sub-section {sec}">
+              <h3 className="sub-title">
+                {sec} {character[`${sec}`].available}
+              </h3>
+              <ul className="items-list ">
+                {character[`${sec}`].items.map(({ name }, i) => {
+                  return (
+                    <li key={i} className="list-item">
+                      {name}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
       </div>
     );
   }
