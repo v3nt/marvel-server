@@ -21,9 +21,9 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// app.get("/", function (req, res) {
-//   res.send("hello world");
-// });
+app.get("/", function (req, res) {
+  res.send("hello world");
+});
 
 //
 const PORT = process.env.PORT || 5000;
