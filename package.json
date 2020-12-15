@@ -10,9 +10,9 @@
     "scripts": {
         "start": "node index.js",
         "server": "nodemon index.js",
-        "client": "npm run start --prefix client",
-        "dev": "concurrently \"npm run server\" \"npm run client\" ",
-        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm i --prefix client && npm run build --prefix client"
+        "client": "npm run start --prefix marvel-client",
+        "dev": "concurrently \"npm run server\" \"npm run marvel-client\" ",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm i --prefix marvel-client && npm run build --prefix marvel-client"
     },
     "author": "",
     "license": "ISC",
