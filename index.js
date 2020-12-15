@@ -27,5 +27,5 @@ app.get("/", function (req, res) {
 
 //
 const PORT = process.env.PORT || 5000;
-console.log(PORT);
+// console.log(PORT);
 app.listen(PORT);
