@@ -1,9 +1,12 @@
 // common js module used for this project
 const express = require("express");
 
+const bodyParser = require("body-parser");
+
 // models - not needed yet
 
 const app = express();
+app.use(bodyParser.json());
 
 //heroku
 if (process.env.NODE_ENV === "production") {
@@ -17,3 +20,12 @@ if (process.env.NODE_ENV === "production") {
     );
   });
 }
+
+app.get("/", function (req, res) {
+  res.send("hello world");
+});
+
+//
+const PORT = process.env.PORT || 5000;
+console.log(PORT);
+app.listen(PORT);
