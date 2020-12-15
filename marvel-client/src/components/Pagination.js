@@ -7,7 +7,6 @@ const Pagination = ({
   handlePageChange,
 }) => {
   const classes = (pageNumber, itemNum, closeness) => {
-    console.log(itemNum - pageNumber);
     if (parseInt(pageNumber) === itemNum) {
       return "page-item active";
     } else if (
