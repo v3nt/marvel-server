@@ -22,10 +22,10 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path="/characters">
-            <List />
+            <List listTitle="Marvel Characters" />
           </Route>
           <Route exact path="/characters/page/:pageNumberUrl">
-            <List />
+            <List listTitle="Marvel Characters" />
           </Route>
           <Route exact path="/" component={Landing} />
           <Route path="/character/:id">

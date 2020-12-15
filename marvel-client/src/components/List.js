@@ -6,7 +6,7 @@ import history from "../utils/history";
 
 import Pagination from "./Pagination";
 
-const List = () => {
+const List = ({ listTitle }) => {
   const { pageNumberUrl } = useParams();
 
   const [pageNumber, setPageNumber] = useState(
@@ -29,11 +29,13 @@ const List = () => {
       </div>
     );
   });
+
   const prevPage = () => {
     var newPageNum = pageNumber > 1 ? pageNumber - 1 : pageNumber;
     history.push(`/characters/page/${newPageNum}`);
     setPageNumber(newPageNum);
   };
+
   const nextPage = () => {
     var newPageNum =
       pageNumber == totalPages ? pageNumber : parseFloat(pageNumber) + 1;
@@ -48,7 +50,7 @@ const List = () => {
 
   return (
     <div className="container">
-      <h3>List</h3>
+      <h3>{listTitle}</h3>
       <Pagination
         totalItems={totalItems}
         pageNumber={pageNumber}
@@ -56,13 +58,13 @@ const List = () => {
         nextAction={nextPage}
         prevAction={prevPage}
       />
-      <Link to={`/characters/page/20`} className="ui button primary">
+      {/* <Link to={`/characters/page/20`} className="ui button primary">
         page 20
       </Link>
 
       <button onClick={() => handlePageChange(1)}>Button 1</button>
       <button onClick={() => handlePageChange(10)}>Button 10</button>
-      <button onClick={() => handlePageChange(5)}>Button 5</button>
+      <button onClick={() => handlePageChange(5)}>Button 5</button> */}
       <ul>{renderedList}</ul>
     </div>
   );

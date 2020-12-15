@@ -179,7 +179,7 @@ $body-color: $gray-900;
 
 $link-color: theme-color("primary");
 $link-decoration: none;
-$link-hover-color: darken($link-color, 15%);
+$link-hover-color: $black;
 $link-hover-decoration: underline;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15%;
@@ -437,9 +437,9 @@ $btn-link-disabled-color: $gray-600;
 $btn-block-spacing-y: 0.5rem;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius: $border-radius;
-$btn-border-radius-lg: $border-radius-lg;
-$btn-border-radius-sm: $border-radius-sm;
+$btn-border-radius: 0;
+$btn-border-radius-lg: 0;
+$btn-border-radius-sm: 0;
 
 $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;

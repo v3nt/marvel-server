@@ -1,12 +1,18 @@
 const Pagination = (props) => {
   return (
     <div>
-      <div>totalItems {props.totalItems}</div>
+      <h4>
+        Total Items <span className="text-number">{props.totalItems}</span>
+      </h4>
       <div>
         <div>
-          <button onClick={props.prevAction}>Previous </button>
+          <a href="#" className="btn btn-primary " onClick={props.prevAction}>
+            Previous
+          </a>
           {props.pageNumber} /{props.totalPages}
-          <button onClick={props.nextAction}>Next</button>
+          <a href="#" className="btn btn-primary " onClick={props.nextAction}>
+            Next
+          </a>
         </div>
       </div>
     </div>
