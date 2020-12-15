@@ -7,12 +7,13 @@ const app = express();
 
 //heroku
 if (process.env.NODE_ENV === "production") {
-  // express serves up prod files like main.js or main.css files with base of:
-  app.use(express.static("client/build"));
+  app.use(express.static("marvel-client/build"));
 
   // express serves index.html if it doesn't know what else to do
   const path = require("path");
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(
+      path.resolve(__dirname, "marvel-client", "build", "index.html")
+    );
   });
 }
