@@ -4,6 +4,16 @@ import useCharacter from "../hooks/useCharacter";
 
 const SECTIONS = ["comics", "series", "stories"];
 
+const Description = ({ description }) => {
+  console.log(description);
+
+  return (
+    <div>
+      <p>{description ? description : ""}</p>
+    </div>
+  );
+};
+
 const CharacterDetail = () => {
   const { id } = useParams();
   // custom hook. useCharacter.js
@@ -11,14 +21,15 @@ const CharacterDetail = () => {
   const isArray = character instanceof Array;
 
   if (!isLoading && isArray === false) {
-    console.log(character);
     const thumb =
       character.thumbnail.path +
       "/portrait_uncanny." +
       character.thumbnail.extension;
+    console.log(character);
     return (
       <div className="character-info">
         <h2 className="title">{character.name}</h2>
+        <Description {...character} />
         <img src={thumb} alt={character.name} />
         {SECTIONS.map((sec, i) => {
           return (
@@ -26,6 +37,7 @@ const CharacterDetail = () => {
               <h3 className="sub-title">
                 {sec} {character[`${sec}`].available}
               </h3>
+
               <ul className="items-list ">
                 {character[`${sec}`].items.map(({ name }, i) => {
                   return (
