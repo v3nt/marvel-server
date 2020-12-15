@@ -4,20 +4,21 @@ import useCharacters from "../hooks/useCharacters";
 import { useParams, Link } from "react-router-dom";
 import history from "../utils/history";
 
-const Pagination = (props) => {
-  return (
-    <div>
-      <div>totalItems {props.totalItems}</div>
-      <div>
-        <div>
-          <button onClick={props.prevAction}>Previous </button>
-          {props.pageNumber} /{props.totalPages}
-          <button onClick={props.nextAction}>Next</button>
-        </div>
-      </div>
-    </div>
-  );
-};
+import Pagination from "./Pagination";
+// const Pagination = (props) => {
+//   return (
+//     <div>
+//       <div>totalItems {props.totalItems}</div>
+//       <div>
+//         <div>
+//           <button onClick={props.prevAction}>Previous </button>
+//           {props.pageNumber} /{props.totalPages}
+//           <button onClick={props.nextAction}>Next</button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 const List = () => {
   const { pageNumberUrl } = useParams();
