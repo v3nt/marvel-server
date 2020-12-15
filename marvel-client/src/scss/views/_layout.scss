@@ -1,0 +1,92 @@
+.character-list {
+  @include make-row();
+  @extend .list-unstyled;
+}
+
+.character-item {
+  @include make-col-ready();
+  @include media-breakpoint-up(sm) {
+    @include make-col(6);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(4);
+  }
+  @extend .mb-3;
+}
+
+.character-container {
+  @extend .p-3;
+  background-color: $black;
+}
+.character-content {
+  @include make-row();
+  &:hover {
+    cursor: pointer;
+    .character-title-link {
+      color: white;
+    }
+    img {
+      outline: white 5px solid;
+    }
+  }
+}
+.character-text {
+  @include make-col-ready();
+  @include media-breakpoint-up(sm) {
+    @include make-col(6);
+  }
+}
+.character-image {
+  @include make-col-ready();
+  @include media-breakpoint-up(md) {
+    @include make-col(6);
+  }
+  @extend .text-right;
+}
+
+.marvel-pagination {
+  @extend .mb-4;
+}
+.pagination {
+  @extend .d-flex, .justify-content-end;
+  .page-item {
+  }
+}
+
+.pagination-header {
+  @include make-row();
+}
+.pagination-text {
+  @include make-col-ready();
+  @include media-breakpoint-up(sm) {
+    @include make-col(4);
+  }
+}
+.pagination-controls {
+  @include make-col-ready();
+  @include media-breakpoint-up(sm) {
+    @include make-col(8);
+  }
+  @extend .text-right;
+}
+
+.page-item.num {
+  &.not-close {
+    @extend .d-none;
+  }
+  &.item-close {
+    @extend .d-none, .d-md-inline;
+  }
+  &.active {
+    @extend .d-inline;
+  }
+}
+
+.page-item {
+  &.elipse {
+    @extend .d-none, .d-md-inline;
+  }
+}
+.container + .container {
+  @extend .mt-4;
+}

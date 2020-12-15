@@ -1,3 +1,6 @@
+#
+.env.*
+
 # Logs
 logs
 *.log
@@ -104,3 +107,4 @@ dist
 .tern-port
 marvel-client/.env.development
 marvel-client/.env.production
+marvel-client/package-lock.json
