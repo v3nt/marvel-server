@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CharacterItem = ({ name, id, thumbnail }) => {
-  const thumb = thumbnail.path + "/portrait_medium." + thumbnail.extension;
+  const thumb = thumbnail.path + "/portrait_uncanny." + thumbnail.extension;
 
   return (
     <div className="character-container">
@@ -17,7 +17,7 @@ const CharacterItem = ({ name, id, thumbnail }) => {
         </div>
         <div className="character-image">
           <Link to={`/character/${id}`}>
-            <img src={thumb} alt={name} className="character-thumb" />
+            <img src={thumb} alt={name} className="character-thumb img-fluid" />
           </Link>
         </div>
       </div>

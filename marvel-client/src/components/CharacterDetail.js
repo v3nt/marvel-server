@@ -23,13 +23,15 @@ const CharacterDetail = () => {
       character.thumbnail.path +
       "/portrait_uncanny." +
       character.thumbnail.extension;
-    console.log(character);
+
     return (
       <div className="container">
         <div className="character-info">
-          <h1 className="title">{character.name}</h1>
+          <h1 className="character-page-title">{character.name}</h1>
           <Description {...character} />
           <img src={thumb} alt={character.name} />
+        </div>
+        <div className="character-section">
           {SECTIONS.map((sec, i) => {
             return (
               <div key={i} className="character-sub-section {sec}">

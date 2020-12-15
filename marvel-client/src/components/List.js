@@ -67,6 +67,14 @@ const List = ({ listTitle }) => {
       <button onClick={() => handlePageChange(10)}>Button 10</button>
       <button onClick={() => handlePageChange(5)}>Button 5</button> */}
       <ul className="character-list">{renderedList}</ul>
+      <Pagination
+        totalItems={totalItems}
+        pageNumber={pageNumber}
+        handlePageChange={handlePageChange}
+        totalPages={totalPages}
+        nextAction={nextPage}
+        prevAction={prevPage}
+      />
     </div>
   );
 };

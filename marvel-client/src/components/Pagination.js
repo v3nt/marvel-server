@@ -8,21 +8,21 @@ const Pagination = ({
 }) => {
   const classes = (pageNumber, itemNum, closeness) => {
     if (parseInt(pageNumber) === itemNum) {
-      return "page-item active";
+      return "page-item num active";
     } else if (
       itemNum - pageNumber < closeness &&
       itemNum - pageNumber > 0 - closeness
     ) {
-      return "page-item item-close";
+      return "page-item num item-close";
     } else {
-      return "page-item not-close";
+      return "page-item num not-close";
     }
   };
 
   const pageIcons = [...Array(totalPages)].map((elementInArray, index) => {
     if (index !== 0) {
       return (
-        <li key={index} className={classes(pageNumber, index, 3)}>
+        <li key={index} className={classes(pageNumber, index, 4)}>
           <button
             className="page-link "
             onClick={() => handlePageChange(index)}
@@ -40,9 +40,9 @@ const Pagination = ({
     <div className="marvel-pagination">
       <div className="pagination-header">
         <div className="pagination-text">
-          <h4 className="title-meta">
+          <p className="title-meta">
             Total Items <span className="text-number">{totalItems}</span>
-          </h4>
+          </p>
         </div>
 
         <div className="pagination-controls ">
@@ -52,13 +52,13 @@ const Pagination = ({
                 Previous
               </button>
             </li>
-            <li className="page-item">
+            <li className="page-item elipse">
               <button className="page-link" onClick={() => handlePageChange(1)}>
                 ...
               </button>
             </li>
             {pageIcons}
-            <li className="page-item">
+            <li className="page-item elipse">
               <button
                 className="page-link"
                 onClick={() => handlePageChange(totalPages)}
