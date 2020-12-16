@@ -41,7 +41,7 @@ const Pagination = ({
       <div className="pagination-header">
         <div className="pagination-text">
           <p className="title-meta">
-            Total Items <span className="text-number">{totalItems}</span>
+            Total <span className="text-number">{totalItems}</span>
           </p>
         </div>
 
