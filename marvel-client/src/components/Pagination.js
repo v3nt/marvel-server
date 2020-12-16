@@ -41,9 +41,9 @@ const Pagination = ({
     <div className="marvel-pagination">
       <div className="pagination-header">
         <div className="pagination-text">
-          <h4 className="title-meta">
-            Total Items <span className="text-number">{totalItems}</span>
-          </h4>
+          <p className="title-meta">
+            Total <span className="text-number">{totalItems}</span>
+          </p>
         </div>
 
         <div className="pagination-controls ">
