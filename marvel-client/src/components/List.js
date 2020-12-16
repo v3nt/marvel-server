@@ -9,7 +9,7 @@ import Pagination from "./Pagination";
 const List = ({ listTitle }) => {
   const { pageNumberUrl } = useParams();
 
-  const [pageNumber, setPageNumber] = useState(
+  var [pageNumber, setPageNumber] = useState(
     !pageNumberUrl ? 1 : pageNumberUrl
   );
 
@@ -38,7 +38,7 @@ const List = ({ listTitle }) => {
 
   const nextPage = () => {
     var newPageNum =
-      pageNumber === totalPages ? pageNumber : parseFloat(pageNumber);
+      pageNumber < totalPages ? parseFloat(pageNumber) + 1 : pageNumber;
     history.push(`/characters/page/${newPageNum}`);
     setPageNumber(newPageNum);
   };
