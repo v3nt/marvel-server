@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "./Image";
 
 const covers = [
   "bk3_wxpqob",
@@ -25,6 +26,16 @@ const Landing = () => {
   return (
     <div>
       <div className="cover-container">
+        <Image
+          sizeSm={
+            "https://res.cloudinary.com/jynk/image/upload/t_media_lib_small/v1608060767/" +
+            randFile
+          }
+          sizeLg={{
+            "https://res.cloudinary.com/jynk/image/upload/t_media_lib_large/v1608060767/" +
+            randFile
+          }}
+        />
         <img
           className="img-fluid"
           data-src-small={
