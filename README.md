@@ -13,7 +13,7 @@ Prerequisites
  - NodeJS and NPM [Nodejs.org](https://nodejs.org/en/download/)
  - Download repo and open terminal inside the folder
 
-### In /
+### In ./
 `npm i`
 
 (Wait for installation to complete)
@@ -35,5 +35,5 @@ To start developement run
   - edit existing
   - upload files
 - Implement caching
-- Create json file of all comics with reduced info for use in charts
-- Images, lazy loading
+- Create json file of all comics (with reduced info) for use in charts
+- Images, lazy loading, preloading
