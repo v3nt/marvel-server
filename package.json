@@ -1,0 +1,26 @@
+{
+    "name": "marvel-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "engines": {
+        "node": "14.15.0",
+        "npm": "6.14.8"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "marvel-server": "nodemon index.js",
+        "client": "npm run start --prefix marvel-client",
+        "dev": "concurrently \"npm run marvel-server\" \"npm run marvel-client\" ",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm i --prefix marvel-client && npm run build --prefix marvel-client"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "concurrently": "^5.3.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.10.18",
+        "nodemon": "^2.0.6"
+    }
+}
