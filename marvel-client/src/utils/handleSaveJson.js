@@ -9,6 +9,3 @@ const handleSaveJson = (jsonData, filename) => {
 };
 
 export default handleSaveJson;
-
-// for prod server notes
-// The application root on Heroku should be /app. So if you have a file named foo.txt in the root of your repo, it would be /app/foo.txt. You can confirm this by opening up a console (e.g. heroku run bash) and running pwd.

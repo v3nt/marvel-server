@@ -15,6 +15,7 @@ const usePublications = (props) => {
     var dataItems = [];
     const apiLimit = 50;
     // 1009187 = Black Panther for testing
+    // careful with API limits
     const response = await marvel.get(`/characters/1009187/comics`, {
       params: {
         limit: apiLimit,
@@ -44,29 +45,6 @@ const usePublications = (props) => {
 
     console.log(dataItems);
 
-    // all retuend with different dataItems, will need re-Processing / formatting
-    // before can be ued together
-    // const responseSeries = await marvel.get(`/characters/1009187/series`, {
-    //   params: {
-    //     limit: 100,
-    //     orderBy: "startYear",
-    //   },
-    // });
-
-    // const responseStories = await marvel.get(`/characters/1009187/stories`, {
-    //   params: {
-    //     limit: 100,
-    //     orderBy: "modified",
-    //   },
-    // });
-
-    // dataItems = [
-    //   ...response.data.data.results,
-    //   ...responseSeries.data.data.results,
-    //   ...responseStories.data.data.results,
-    // ];
-
-    // console.log(dataItems);
     setPublicationsTotal(response.data.data.total);
     setPublications(dataItems);
 
