@@ -19,22 +19,26 @@ const Pagination = ({
     }
   };
 
-  const pageIcons = [...Array(totalPages)].map((elementInArray, index) => {
-    if (index !== 0) {
-      return (
-        <li key={index} className={classes(pageNumber, index, 4)}>
-          <button
-            className="page-link "
-            onClick={() => handlePageChange(index)}
-          >
-            {index}
-          </button>
-        </li>
-      );
-    } else {
-      return "";
+  const totalPagesAjustment = totalPages + 1;
+
+  const pageIcons = [...Array(totalPagesAjustment)].map(
+    (elementInArray, index) => {
+      if (index !== 0) {
+        return (
+          <li key={index} className={classes(pageNumber, index, 4)}>
+            <button
+              className="page-link "
+              onClick={() => handlePageChange(index)}
+            >
+              {index}
+            </button>
+          </li>
+        );
+      } else {
+        return "";
+      }
     }
-  });
+  );
 
   return (
     <div className="marvel-pagination">
