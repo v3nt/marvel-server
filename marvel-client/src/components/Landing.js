@@ -27,9 +27,9 @@ const Landing = () => {
   return (
     <div>
       <div className="cover-container">
-        <MarvelImage sizeSm={srcSm} sizeLg={srcLg} alt="marvel background" />
+        {/* <MarvelImage sizeSm={srcSm} sizeLg={srcLg} alt="marvel background" /> */}
         <img
-          className="img-fluid"
+          className="cover-image"
           data-src-small={
             "https://res.cloudinary.com/jynk/image/upload/t_media_lib_small/v1608060767/" +
             randFile
