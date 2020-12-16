@@ -12,13 +12,6 @@ const covers = [
   "bk2_ipgbmq",
 ];
 
-// const sizes = [
-//   "t_media_lib_small",
-//   "t_media_lib_medium",
-//   "t_media_lib_large",
-//   "",
-// ];
-
 const Landing = () => {
   const rand = Math.floor(Math.random() * Math.floor(covers.length));
   const randFile = `${covers[rand]}.jpg`;
