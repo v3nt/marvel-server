@@ -1,17 +1,24 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const useLoadImage = (small, large) => {
-  const [src, setSrc] = useState(small);
+const useLoadImage = (sizeSm, sizeLg) => {
+  const [src, setSrc] = useState(sizeLg);
+
+  console.log(sizeSm);
+  console.log(sizeLg);
 
   useEffect(() => {
-    setSrc(small);
+    setSrc(sizeSm);
+
     const img = new Image();
-    img.src = large;
+    img.src = sizeLg;
 
     img.onLoad = () => {
-      setSrc(large);
+      setSrc(sizeLg);
+      console.log("loaded");
     };
-  }, [small, large]);
+  }, [sizeSm, sizeLg]);
+
+  return [src, { blur: src === sizeSm }];
 };
 
 export default useLoadImage;
