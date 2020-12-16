@@ -15,9 +15,9 @@ const List = ({ listTitle }) => {
 
   const { characters, totalItems, totalPages } = useCharacters({
     page: pageNumber,
-    ppp: 45,
+    ppp: 50,
   });
-  console.log(characters.length);
+
   useEffect(() => {
     setPageNumber(pageNumberUrl);
   }, [pageNumberUrl]);
@@ -38,7 +38,7 @@ const List = ({ listTitle }) => {
 
   const nextPage = () => {
     var newPageNum =
-      pageNumber === totalPages ? pageNumber : parseFloat(pageNumber) + 1;
+      pageNumber === totalPages ? pageNumber : parseFloat(pageNumber);
     history.push(`/characters/page/${newPageNum}`);
     setPageNumber(newPageNum);
   };
@@ -79,30 +79,7 @@ const List = ({ listTitle }) => {
   return (
     <div className="container">
       <h1>{listTitle}</h1>
-      <Pagination
-        totalItems={totalItems}
-        pageNumber={pageNumber}
-        handlePageChange={handlePageChange}
-        totalPages={totalPages}
-        nextAction={nextPage}
-        prevAction={prevPage}
-      />
-      {/* <Link to={`/characters/page/20`} className="ui button primary">
-        page 20
-      </Link>
-
-      <button onClick={() => handlePageChange(1)}>Button 1</button>
-      <button onClick={() => handlePageChange(10)}>Button 10</button>
-      <button onClick={() => handlePageChange(5)}>Button 5</button> */}
-      <ul className="character-list">{renderedList}</ul>
-      <Pagination
-        totalItems={totalItems}
-        pageNumber={pageNumber}
-        handlePageChange={handlePageChange}
-        totalPages={totalPages}
-        nextAction={nextPage}
-        prevAction={prevPage}
-      />
+      {renderList()}
     </div>
   );
 };
