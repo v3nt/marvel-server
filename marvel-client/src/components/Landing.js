@@ -1,5 +1,4 @@
 import React from "react";
-import MarvelImage from "./MarvelImage";
 
 const covers = [
   "bk3_wxpqob",
@@ -16,17 +15,8 @@ const Landing = () => {
   const rand = Math.floor(Math.random() * Math.floor(covers.length));
   const randFile = `${covers[rand]}.jpg`;
 
-  const srcSm =
-    "https://res.cloudinary.com/jynk/image/upload/t_media_lib_small/v1608060767/" +
-    randFile;
-
-  const srcLg =
-    "https://res.cloudinary.com/jynk/image/upload/t_media_lib_large/v1608060767/" +
-    randFile;
-
   return (
     <div className="cover-container">
-      {/* <MarvelImage sizeSm={srcSm} sizeLg={srcLg} alt="marvel background" /> */}
       <img
         className="cover-image"
         data-src-small={
