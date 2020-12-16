@@ -7,23 +7,22 @@ const Pagination = ({
   handlePageChange,
 }) => {
   const classes = (pageNumber, itemNum, closeness) => {
-    console.log(itemNum - pageNumber);
     if (parseInt(pageNumber) === itemNum) {
-      return "page-item active";
+      return "page-item num active";
     } else if (
       itemNum - pageNumber < closeness &&
       itemNum - pageNumber > 0 - closeness
     ) {
-      return "page-item item-close";
+      return "page-item num item-close";
     } else {
-      return "page-item not-close";
+      return "page-item num not-close";
     }
   };
 
   const pageIcons = [...Array(totalPages)].map((elementInArray, index) => {
     if (index !== 0) {
       return (
-        <li key={index} className={classes(pageNumber, index, 3)}>
+        <li key={index} className={classes(pageNumber, index, 4)}>
           <button
             className="page-link "
             onClick={() => handlePageChange(index)}
@@ -53,13 +52,13 @@ const Pagination = ({
                 Previous
               </button>
             </li>
-            <li className="page-item">
+            <li className="page-item elipse">
               <button className="page-link" onClick={() => handlePageChange(1)}>
                 ...
               </button>
             </li>
             {pageIcons}
-            <li className="page-item">
+            <li className="page-item elipse">
               <button
                 className="page-link"
                 onClick={() => handlePageChange(totalPages)}

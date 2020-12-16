@@ -37,3 +37,11 @@ h2,
   @include media-breakpoint-down(md) {
   }
 }
+
+.sub-title {
+  text-transform: capitalize;
+}
+
+.character-description {
+  font-size: $font-size-lg;
+}

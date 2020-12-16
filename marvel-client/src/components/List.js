@@ -79,7 +79,30 @@ const List = ({ listTitle }) => {
   return (
     <div className="container">
       <h1>{listTitle}</h1>
-      {renderList()}
+      <Pagination
+        totalItems={totalItems}
+        pageNumber={pageNumber}
+        handlePageChange={handlePageChange}
+        totalPages={totalPages}
+        nextAction={nextPage}
+        prevAction={prevPage}
+      />
+      {/* <Link to={`/characters/page/20`} className="ui button primary">
+        page 20
+      </Link>
+
+      <button onClick={() => handlePageChange(1)}>Button 1</button>
+      <button onClick={() => handlePageChange(10)}>Button 10</button>
+      <button onClick={() => handlePageChange(5)}>Button 5</button> */}
+      <ul className="character-list">{renderedList}</ul>
+      <Pagination
+        totalItems={totalItems}
+        pageNumber={pageNumber}
+        handlePageChange={handlePageChange}
+        totalPages={totalPages}
+        nextAction={nextPage}
+        prevAction={prevPage}
+      />
     </div>
   );
 };

@@ -1,0 +1,31 @@
+.character-page-title {
+}
+
+.character-row {
+  @include make-row;
+}
+.character-info {
+  @include make-col-ready;
+  @include media-breakpoint-up(lg) {
+    @include make-col(12);
+  }
+
+  @extend .mt-5, .mb-3;
+}
+.character-media {
+  @include make-col-ready;
+  @include media-breakpoint-up(lg) {
+    @include make-col(6);
+  }
+
+  @extend .mb-3;
+}
+.character-section {
+  @include make-col-ready;
+  @include media-breakpoint-up(lg) {
+    @include make-col(6);
+  }
+}
+.character-sub-section {
+  @extend .mb-4;
+}

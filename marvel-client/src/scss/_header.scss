@@ -11,5 +11,8 @@
 }
 
 .navbar-toggler-icon {
-  color: $red;
+  // background-color: $red;
+}
+.navbar {
+  @extend .p-0;
 }

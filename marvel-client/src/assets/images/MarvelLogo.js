@@ -10,7 +10,6 @@ const MarvelLogo = () => {
         width="1000px"
         height="402.473px"
         viewBox="-215.19 -86.608 1000 402.473"
-        enable-background="new -215.19 -86.608 1000 402.473"
       >
         <defs>
           <clipPath id="cut-off-bottom">

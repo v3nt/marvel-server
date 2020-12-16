@@ -38,7 +38,7 @@
 }
 .character-image {
   @include make-col-ready();
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(md) {
     @include make-col(6);
   }
   @extend .text-right;
@@ -70,14 +70,23 @@
   @extend .text-right;
 }
 
-.page-item {
+.page-item.num {
   &.not-close {
     @extend .d-none;
   }
-  &:nth-child(3),
-  &:nth-last-child(3),
-  &.item-close,
+  &.item-close {
+    @extend .d-none, .d-md-inline;
+  }
   &.active {
     @extend .d-inline;
   }
+}
+
+.page-item {
+  &.elipse {
+    @extend .d-none, .d-md-inline;
+  }
+}
+.container + .container {
+  @extend .mt-4;
 }

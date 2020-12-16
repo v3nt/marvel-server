@@ -6,7 +6,7 @@ const SECTIONS = ["comics", "series", "stories"];
 
 const Description = ({ description }) => {
   return (
-    <div>
+    <div className="character-description">
       <p>{description ? description : ""}</p>
     </div>
   );
@@ -20,35 +20,40 @@ const CharacterDetail = () => {
 
   if (!isLoading && isArray === false) {
     const thumb =
-      character.thumbnail.path +
-      "/portrait_uncanny." +
-      character.thumbnail.extension;
-    console.log(character);
+      character.thumbnail.path + "." + character.thumbnail.extension;
+    ///portrait_uncanny
+
     return (
       <div className="container">
-        <div className="character-info">
-          <h1 className="title">{character.name}</h1>
-          <Description {...character} />
-          <img src={thumb} alt={character.name} />
-          {SECTIONS.map((sec, i) => {
-            return (
-              <div key={i} className="character-sub-section {sec}">
-                <h3 className="sub-title">
-                  {sec} {character[`${sec}`].available}
-                </h3>
+        <div className="character-row">
+          <div className="character-info">
+            <h1 className="character-page-title">{character.name}</h1>
+            <Description {...character} />
+          </div>
+          <div className="character-media">
+            <img src={thumb} alt={character.name} className="img-fluid" />
+          </div>
+          <div className="character-section">
+            {SECTIONS.map((sec, i) => {
+              return (
+                <div key={i} className="character-sub-section {sec}">
+                  <h3 className="sub-title">
+                    {sec} {character[`${sec}`].available}
+                  </h3>
 
-                <ul className="items-list ">
-                  {character[`${sec}`].items.map(({ name }, i) => {
-                    return (
-                      <li key={i} className="list-item">
-                        {name}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            );
-          })}
+                  <ul className="items-list ">
+                    {character[`${sec}`].items.map(({ name }, i) => {
+                      return (
+                        <li key={i} className="list-item">
+                          {name}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
