@@ -3,9 +3,6 @@ import { useState, useEffect } from "react";
 const useLoadImage = (sizeSm, sizeLg) => {
   const [src, setSrc] = useState(sizeLg);
 
-  console.log(sizeSm);
-  console.log(sizeLg);
-
   useEffect(() => {
     setSrc(sizeSm);
 
