@@ -7,7 +7,6 @@ const myApiURL =
   process.env.REACT_APP_MARVEL_API_KEY;
 
 const myApiURLM5 = md5(myApiURL);
-console.log("REACT_APP_MARVEL_API_KEY", process.env.REACT_APP_MARVEL_API_KEY);
 export default axios.create({
   baseURL: "https://gateway.marvel.com/v1/public/",
   params: {

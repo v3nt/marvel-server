@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useCharacter from "../hooks/useCharacter";
+import usePublications from "../hooks/usePublications";
 
 const SECTIONS = ["comics", "series", "stories"];
 
@@ -14,8 +15,10 @@ const Description = ({ description }) => {
 
 const CharacterDetail = () => {
   const { id } = useParams();
-  // custom hook. useCharacter.js
   const { isLoading, character } = useCharacter(id);
+  // const { isLoadingPubs, publications, publicationsTotal } = usePublications(
+  //   id
+  // );
   const isArray = character instanceof Array;
 
   if (!isLoading && isArray === false) {
