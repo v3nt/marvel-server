@@ -36,3 +36,4 @@ To start developement run
   - upload files
 - Implement caching
 - Create json file of all comics with reduced info for use in charts
+- Images, lazy loading
